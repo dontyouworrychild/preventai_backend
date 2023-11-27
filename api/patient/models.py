@@ -46,7 +46,8 @@ class Interview(models.Model):
 
 
 class Doctor(User):
-    rating = models.IntegerField()
+    rating = models.IntegerField(blank=True, null=True)
+    phone_number = models.CharField()
 
     def save(self, *args, **kwargs):
         self.role = 'doctor'
