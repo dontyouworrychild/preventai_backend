@@ -14,7 +14,7 @@ class RehabCenter(models.Model):
     name = models.CharField()
     city = models.CharField()
     address = models.CharField()
-    rating = models.IntegerField()
+    rating = models.IntegerField(blank=True, null=True)
 
 class Patient(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -39,7 +39,7 @@ class Interview(models.Model):
     doctor = models.ForeignKey(User, on_delete=models.CASCADE, related_name='interviews')
     questions = models.TextField()
     feedback = models.TextField()
-    percentage = models.IntegerField()
+    percentage = models.IntegerField(blank=True, null=True)
     date = models.DateField()
     start_time = models.TimeField()
     end_time = models.TimeField()

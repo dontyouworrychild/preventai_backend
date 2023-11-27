@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
-      - static:/static
+      - ./api:/api
     ports:
       - "8000:8000"
     environment:
@@ -27,6 +27,3 @@ services:
       POSTGRES_DB: postgres
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-
-volumes:
-  static:
