@@ -36,13 +36,13 @@ class Patient(models.Model):
 
 class Interview(models.Model):
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE, related_name='interviews')
-    questions = models.JSONField()
+    doctor = models.ForeignKey(User, on_delete=models.CASCADE, related_name='interviews')
+    questions = models.TextField()
     feedback = models.TextField()
     percentage = models.IntegerField()
     date = models.DateField()
     start_time = models.TimeField()
     end_time = models.TimeField()
-    doctor = models.ForeignKey(User, on_delete=models.CASCADE, related_name='interviews')
 
 
 class Doctor(User):
