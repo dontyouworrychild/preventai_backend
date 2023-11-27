@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import RehabCenter, Patient, Interview
+from .models import *
 
 class RehabCenterSerializer(serializers.ModelSerializer):
     class Meta:
@@ -14,4 +14,14 @@ class PatientSerializer(serializers.ModelSerializer):
 class InterviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Interview
+        fields = '__all__'
+
+class DoctorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Doctor
+        fields = '__all__'
+
+class TimeSlotSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TimeSlot
         fields = '__all__'
