@@ -24,12 +24,12 @@ class Patient(models.Model):
     date_of_birth = models.DateField()
     
     phone_number = models.CharField(max_length=20)
-    city = models.CharField(GENDER_CHOICES)
+    city = models.CharField(max_length=20)
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
     ethnicity = models.CharField(max_length=100)
 
-    start_date = models.DateField()
-    end_date = models.DateField()
+    start_rehab_date = models.DateField()
+    end_rehab_date = models.DateField()
 
     rehab_center = models.ForeignKey(RehabCenter, on_delete=models.CASCADE, related_name='patients')
     doctor_fio = models.CharField()
