@@ -8,6 +8,10 @@ def patient_directory_path(instance, filename):
     extension = filename.split('.')[-1]
     return f"patients/{instance.id}.{extension}"
 
+def rehab_center_directory_path(instance, filename):
+    extension = filename.split('.')[-1]
+    return f"rehab_centers/{instance.id}.{extension}"
+
 GENDER_CHOICES = [('M', 'Male'), ('F', 'Female')]
 
 class RehabCenter(models.Model):
@@ -15,6 +19,8 @@ class RehabCenter(models.Model):
     city = models.CharField()
     address = models.CharField()
     rating = models.IntegerField(blank=True, null=True)
+    description = models.CharField(blank=True)
+    image = models.ImageField(upload_to=rehab_center_directory_path, blank=True)
 
 class Patient(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
